@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on 內行人開發筆記</title>
+    <link>https://rc1021.github.io/posts/</link>
+    <description>Recent content in Posts on 內行人開發筆記</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Fri, 06 May 2022 23:54:02 +0800</lastBuildDate><atom:link href="https://rc1021.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Laradock-PHP-Worker Call to undefined function Intervention\Image\Gd\imagecreatefromjpeg()</title>
+      <link>https://rc1021.github.io/posts/laradock-undefined-imagecreatefromjpeg/</link>
+      <pubDate>Fri, 06 May 2022 23:54:02 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/posts/laradock-undefined-imagecreatefromjpeg/</guid>
+      <description>結論寫在前面 移除 Laradock 在 php-worker Dockerfile(line:90) 的 --with-png 就能解決 Call to undefined function Intervention\Image\Gd\imagecreatefromjpeg() 的問題。
+原因 PHP 7.4(Alpine) 安裝 gd 要獲得 JPEG 的支持，在編譯組態時加入 --with-jpeg 即可。但是! Laradock 在 php-worker Dockerfile(line:90) 裡多加入了 --with-png 導致編譯失敗。
+修改 Dockerfile 重建 image 修改 php-worker 的 Dockerfile
+// laradocker/php-worker/Dockerfile: 90 docker-php-ext-configure gd --with-freetype --with-jpeg --with-png; \ 改為
+docker-php-ext-configure gd --with-freetype --with-jpeg; \ 然後，重新建立 image
+$ docker-compose up --build -d php-worker Recreating laradock_php-worker_1 ... done 檢查重建的環境是否支持 JPEG
+$ docker exec -it laradock_php-worker_1 php -r &amp;#39;print_r(gd_info());&amp;#39; Array ( [GD Version] =&amp;gt; bundled (2.</description>
+    </item>
+    
+    <item>
+      <title>Gather虛擬辦公室</title>
+      <link>https://rc1021.github.io/posts/gather-office/</link>
+      <pubDate>Fri, 22 Apr 2022 17:10:04 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/posts/gather-office/</guid>
+      <description>註：線上辦公室的夜景
+傳送門 https://app.gather.town/invite?token=Girpjb56vIZEZIE3YWlHeUpzl335uOyO</description>
+    </item>
+    
+    <item>
+      <title>免密碼登入遠程主機(SSH copy id)</title>
+      <link>https://rc1021.github.io/posts/ssh-copy-id/</link>
+      <pubDate>Fri, 22 Apr 2022 11:15:59 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/posts/ssh-copy-id/</guid>
+      <description>如果你有 SSH 金鑰就能免密碼登入遠程主機
+先決條件  假設在你的系統安裝了 OpenSSH。  產生 SSH 金鑰(假設你沒有) 執行 ssh-keygen 產生 ssh key
+$ ssh-keygen Generating public/private rsa key pair. Enter file in which to save the key ... 執行指令 假設你要登入的遠程指定為 ssh {username}@{remote.ip}
+使用 ssh-copy-id 複製金鑰到遠程主機，這期間會問你登入密碼
+$ ssh-copy-id {username}@{remote.ip} The authenticity of host &amp;#39;{remote.ip}&amp;#39; can&amp;#39;t be established. ECDSA key fingerprint is xxxxxx. Are you sure you want to continue connecting (yes/no)? yes /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys {username}@{remote.</description>
+    </item>
+    
+    <item>
+      <title>[Solve] Composer Without SSL</title>
+      <link>https://rc1021.github.io/posts/composer-without-ssl/</link>
+      <pubDate>Mon, 18 Apr 2022 19:35:44 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/posts/composer-without-ssl/</guid>
+      <description>安裝 php composer 少數人會遇到的冷門問題
+[Composer\Downloader\TransportException] curl error 60 while downloading https://repo.packagist.org/packages.json: SSL certificate problem: unable to get local issuer certificate 這說明系統的憑證失效了。
+有解法，可以繞過檢查，但我認為這麼做不明智。
+$ composer config --global disable-tls true $ composer config --global secure-http false $ composer config --global repo.packagist composer http://packagist.org 小心用吧(如果不是你的系統別亂裝)，恭喜你節省了大約 20 分鐘
+ 聽說：小故事大道理 有破釜沈舟死戰的決心，不等於去冒險。冒險是一件容易的事情，你把錢都壓到賭場上就是冒險，但是冒險和成功沒有必然的聯繫。</description>
+    </item>
+    
+    <item>
+      <title>Laravel &#43; Vue3 環境安裝</title>
+      <link>https://rc1021.github.io/posts/laravel-vu3/</link>
+      <pubDate>Mon, 18 Apr 2022 14:05:28 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/posts/laravel-vu3/</guid>
+      <description>雖然不是新聞了，但還是分享一下這簡單的步驟，拋磚引玉。 目前 Laravel8 | 9 還只支援 Vue 2，如果要整合 Vue 3 可參考這篇，只要 3 個步驟簡單又不出錯。
+ 首先建立 Laravel 專案，並利用 laravel/ui 初始化 vue2 環境  composer create-project laravel/laravel demo-app &amp;#34;8.6.11&amp;#34; cd demo-app composer require laravel/ui --dev php artisan ui vue 其中 php artisan ui vue 會建立 vue 相關目錄和變更一些檔案
+demo-app |- resources | |- js | | |- components | | |- ExampleComponent.vue | |- app.js |- package.json // 加入 vue, vue-loader, vue-template-compiler |- webpack.</description>
+    </item>
+    
+    <item>
+      <title>使用Git Actions佈署Hugo到GitPage</title>
+      <link>https://rc1021.github.io/posts/hugo-deploy-gitpage-with-action/</link>
+      <pubDate>Mon, 18 Apr 2022 10:16:16 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/posts/hugo-deploy-gitpage-with-action/</guid>
+      <description>如果你知道 GitPage 且試著將 JAMStack(Hugo, Jekyll) 的內容自動佈署到 GitPage，這篇內容是一個很棒的起點。
+先決條件  假設你已擁有 {username}.github.io 的 repository，請先確保你擁有 GitPage 再繼續。 假設你已擁有 Hugo 的 repository，請先確保你有一個 Hugo 專案且上傳至 github。 假設在你的系統裡 ~/.ssh 目錄已經存在且安裝了 OpenSSH。  定義 首先我把 repository 稱為 庫
+再來分清楚來源庫和目標庫是必要的：
+ 目標庫：呈現站台的內容，這裡是指 {username}.github.io 專案 來源庫：這裡是指管理 Hugo 的專案，使用 hugo new site blog 參考手冊  以我的站台來說
+ 目標庫是 rc1021/rc1021.github.io 來源庫是 rc1021/blog  你應該也擁有這樣兩個庫
+產生佈署用的金鑰 我們的目標是自動化佈署，所以在庫與庫之間要聯系溝通你需要產生一組佈署用的金鑰，為了不影響本機的金鑰請使用下列命令
+$ ssh-keygen -t rsa -b 4096 -C &amp;#34;{username}@users.noreply.github.com&amp;#34; -f ~/.ssh/noreply  請將 {username} 改為你的帳戶名稱  你將會得到 noreply.</description>
+    </item>
+    
+    <item>
+      <title>SSH Copy</title>
+      <link>https://rc1021.github.io/posts/ssh-copy/</link>
+      <pubDate>Sun, 17 Apr 2022 14:43:52 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/posts/ssh-copy/</guid>
+      <description>如果你需要將檔案或目錄從本地上傳到遠程伺服器，或從遠程下載資料到本地電腦，可以使用 scp 達成。
+先決條件  如果不希望每次都輸入密碼設定 SSH copy id  scp 指令用法 從本地位置複製到遠程位置 (上傳)
+$ scp -r /path/from/local username@hostname:/path/to/remote 從遠程位置複製到本地位置 (下載)
+$ scp -r username@hostname:/path/from/remote /path/to/local 加上自訂端口(Port)
+$ scp -r -P xxxx username@hostname:/path/from/remote /path/to/local 說明:
+ -r 使用遞歸複製所有目錄和文件 hostname 將是主機名或 IP 地址 如果需要自定義端口（除了端口 22），請使用 -P portnumber  恭喜你又學會一個技巧了
+ 聽說：小故事大道理 來源 萬維鋼精英日課2：努力就有收獲不等於努力就能成功
+「努力就有收穫」肯定是沒錯的，但我們得區別「努力就有收穫」和「努力就能成功」。現在我們關注的所謂「成功」，是指出類拔萃，是相對於大多數人，你是一個什麼位置。如果會努力的人很多，而具有開放頭腦和創造性思維的人很少，那麼「努力」就不是一個預測「成功」的好指標。
+越是競爭激烈的領域，天賦和機遇就越重要。比如職業足球、音樂家這些領域，願意勤學苦練的人實在太多了，最後勝出的肯定得有點天賦。如果一個領域僅僅是努力就能比別人領先很多，那只能說明願意進入這個領域的高手太少。</description>
+    </item>
+    
+    <item>
+      <title>透過 SSH config 登入遠端伺服器</title>
+      <link>https://rc1021.github.io/posts/login-with-sshconfig/</link>
+      <pubDate>Sat, 16 Apr 2022 21:38:14 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/posts/login-with-sshconfig/</guid>
+      <description>如果你經常通過 SSH 連接到多個遠程系統，你會發現記住所有遠程 IP 地址、不同的用戶名、非標準端口和各種命令行選項是很困難的，如果可以的話，通常會配置 SSH config 記住這些資訊。
+先決條件 假設在你的系統裡 ~/.ssh 目錄已經存在且安裝了 OpenSSH。
+新增 SSH 配置文件 默認情況下，SSH 配置文件可能不存在，因此請使用 touch 命令建立它(windows 用戶直接新增檔案)
+$ touch ~/.ssh/config 設定權限不讓其它用戶有權更新
+$ chmod 600 ~/.ssh/config SSH 配置文件結構 文件結構一共 2 層：
+Host {IDENTIFY NAME} {SSH_OPTION} {VALUE} {SSH_OPTION} {VALUE} Host {IDENTIFY NAME} {SSH_OPTION} {VALUE} {SSH_OPTION} {VALUE}  第 1 層為 節點名稱(連線別名) 第 2 層為 SSH Option (像是 User, IP, IdentityFile) + 值  命令改為配置內容 通過 SSH 連接到遠程服務器時，你會使用遠程用戶名稱、主機 IP 位置和端口，下面例子說明使用 SSH 命令以名為 ubuntu 的用戶身份登入 example.</description>
+    </item>
+    
+  </channel>
+</rss>

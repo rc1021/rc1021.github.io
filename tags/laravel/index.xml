@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>laravel on 內行人開發筆記</title>
+    <link>https://rc1021.github.io/tags/laravel/</link>
+    <description>Recent content in laravel on 內行人開發筆記</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Mon, 18 Apr 2022 14:05:28 +0800</lastBuildDate><atom:link href="https://rc1021.github.io/tags/laravel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Laravel &#43; Vue3 環境安裝</title>
+      <link>https://rc1021.github.io/posts/laravel-vu3/</link>
+      <pubDate>Mon, 18 Apr 2022 14:05:28 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/posts/laravel-vu3/</guid>
+      <description>雖然不是新聞了，但還是分享一下這簡單的步驟，拋磚引玉。 目前 Laravel8 | 9 還只支援 Vue 2，如果要整合 Vue 3 可參考這篇，只要 3 個步驟簡單又不出錯。
+ 首先建立 Laravel 專案，並利用 laravel/ui 初始化 vue2 環境  composer create-project laravel/laravel demo-app &amp;#34;8.6.11&amp;#34; cd demo-app composer require laravel/ui --dev php artisan ui vue 其中 php artisan ui vue 會建立 vue 相關目錄和變更一些檔案
+demo-app |- resources | |- js | | |- components | | |- ExampleComponent.vue | |- app.js |- package.json // 加入 vue, vue-loader, vue-template-compiler |- webpack.</description>
+    </item>
+    
+  </channel>
+</rss>

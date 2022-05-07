@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>online office on 內行人開發筆記</title>
+    <link>https://rc1021.github.io/tags/online-office/</link>
+    <description>Recent content in online office on 內行人開發筆記</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Fri, 22 Apr 2022 17:10:04 +0800</lastBuildDate><atom:link href="https://rc1021.github.io/tags/online-office/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gather虛擬辦公室</title>
+      <link>https://rc1021.github.io/posts/gather-office/</link>
+      <pubDate>Fri, 22 Apr 2022 17:10:04 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/posts/gather-office/</guid>
+      <description>註：線上辦公室的夜景
+傳送門 https://app.gather.town/invite?token=Girpjb56vIZEZIE3YWlHeUpzl335uOyO</description>
+    </item>
+    
+  </channel>
+</rss>

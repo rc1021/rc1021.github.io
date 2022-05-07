@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on 內行人開發筆記</title>
+    <link>https://rc1021.github.io/tags/</link>
+    <description>Recent content in Tags on 內行人開發筆記</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Fri, 06 May 2022 23:54:02 +0800</lastBuildDate><atom:link href="https://rc1021.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gd</title>
+      <link>https://rc1021.github.io/tags/gd/</link>
+      <pubDate>Fri, 06 May 2022 23:54:02 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/tags/gd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>imagecreatefromjpeg</title>
+      <link>https://rc1021.github.io/tags/imagecreatefromjpeg/</link>
+      <pubDate>Fri, 06 May 2022 23:54:02 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/tags/imagecreatefromjpeg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>laradock</title>
+      <link>https://rc1021.github.io/tags/laradock/</link>
+      <pubDate>Fri, 06 May 2022 23:54:02 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/tags/laradock/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>php-worker</title>
+      <link>https://rc1021.github.io/tags/php-worker/</link>
+      <pubDate>Fri, 06 May 2022 23:54:02 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/tags/php-worker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gather</title>
+      <link>https://rc1021.github.io/tags/gather/</link>
+      <pubDate>Fri, 22 Apr 2022 17:10:04 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/tags/gather/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>online office</title>
+      <link>https://rc1021.github.io/tags/online-office/</link>
+      <pubDate>Fri, 22 Apr 2022 17:10:04 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/tags/online-office/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
+      <link>https://rc1021.github.io/tags/ssh/</link>
+      <pubDate>Fri, 22 Apr 2022 11:15:59 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>laravel</title>
+      <link>https://rc1021.github.io/tags/laravel/</link>
+      <pubDate>Mon, 18 Apr 2022 14:05:28 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/tags/laravel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vue3</title>
+      <link>https://rc1021.github.io/tags/vue3/</link>
+      <pubDate>Mon, 18 Apr 2022 14:05:28 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/tags/vue3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>deploy with github</title>
+      <link>https://rc1021.github.io/tags/deploy-with-github/</link>
+      <pubDate>Mon, 18 Apr 2022 10:16:16 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/tags/deploy-with-github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitpage</title>
+      <link>https://rc1021.github.io/tags/gitpage/</link>
+      <pubDate>Mon, 18 Apr 2022 10:16:16 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/tags/gitpage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://rc1021.github.io/tags/hugo/</link>
+      <pubDate>Mon, 18 Apr 2022 10:16:16 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

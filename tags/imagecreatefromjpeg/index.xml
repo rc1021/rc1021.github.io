@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>imagecreatefromjpeg on 內行人開發筆記</title>
+    <link>https://rc1021.github.io/tags/imagecreatefromjpeg/</link>
+    <description>Recent content in imagecreatefromjpeg on 內行人開發筆記</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Fri, 06 May 2022 23:54:02 +0800</lastBuildDate><atom:link href="https://rc1021.github.io/tags/imagecreatefromjpeg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Laradock-PHP-Worker Call to undefined function Intervention\Image\Gd\imagecreatefromjpeg()</title>
+      <link>https://rc1021.github.io/posts/laradock-undefined-imagecreatefromjpeg/</link>
+      <pubDate>Fri, 06 May 2022 23:54:02 +0800</pubDate>
+      
+      <guid>https://rc1021.github.io/posts/laradock-undefined-imagecreatefromjpeg/</guid>
+      <description>結論寫在前面 移除 Laradock 在 php-worker Dockerfile(line:90) 的 --with-png 就能解決 Call to undefined function Intervention\Image\Gd\imagecreatefromjpeg() 的問題。
+原因 PHP 7.4(Alpine) 安裝 gd 要獲得 JPEG 的支持，在編譯組態時加入 --with-jpeg 即可。但是! Laradock 在 php-worker Dockerfile(line:90) 裡多加入了 --with-png 導致編譯失敗。
+修改 Dockerfile 重建 image 修改 php-worker 的 Dockerfile
+// laradocker/php-worker/Dockerfile: 90 docker-php-ext-configure gd --with-freetype --with-jpeg --with-png; \ 改為
+docker-php-ext-configure gd --with-freetype --with-jpeg; \ 然後，重新建立 image
+$ docker-compose up --build -d php-worker Recreating laradock_php-worker_1 ... done 檢查重建的環境是否支持 JPEG
+$ docker exec -it laradock_php-worker_1 php -r &amp;#39;print_r(gd_info());&amp;#39; Array ( [GD Version] =&amp;gt; bundled (2.</description>
+    </item>
+    
+  </channel>
+</rss>
