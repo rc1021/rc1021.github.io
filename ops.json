@@ -1,0 +1,9 @@
+{
+  "genForceTap": true,
+  "genForceCost": 2,
+  "genForceStep": 0,
+  "genForceTier": 3,
+  "genForceMax": 8,
+  "helperOn": true,
+  "helperMergePer": 0
+}
